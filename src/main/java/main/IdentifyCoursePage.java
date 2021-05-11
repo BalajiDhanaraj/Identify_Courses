@@ -34,6 +34,7 @@ public class IdentifyCoursePage extends DriverSetup {
 
     public void searchCourse()
     {
+        System.out.println("hello");
         driver.findElement(By.className("react-autosuggest__input")).click();
         //Enter web development courses and click enter key
         driver.findElement(By.className("react-autosuggest__input")).sendKeys("web development courses" + Keys.ENTER);
