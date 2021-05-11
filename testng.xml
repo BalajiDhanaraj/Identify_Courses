@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test thread-count="2" name="Test">
+        <groups>
+            <run>
+                <include name="Smoke Suite"/>
+                <include name="Regression Suite"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="testcases.IdentifyCourse"/>
+            <class name="testcases.LanguageLearning"/>
+            <class name="testcases.FormFilling" />
+        </classes>
+    </test>
+</suite>
