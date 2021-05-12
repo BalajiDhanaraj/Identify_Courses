@@ -5,19 +5,15 @@ import com.aventstack.extentreports.ExtentTest;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
-
 import org.openqa.selenium.WebElement;
-
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-
 import test_pom.formFilling;
 import utils.CaptureScreenshots;
 import utils.DriverSetup;
 import utils.ExtentReport;
 import utils.ReadProperties;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

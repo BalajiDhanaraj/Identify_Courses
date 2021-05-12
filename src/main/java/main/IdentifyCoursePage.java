@@ -1,29 +1,19 @@
 package main;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-
-import org.openqa.selenium.WebElement;
-
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import org.testng.Reporter;
 import test_pom.IdentifyCourses;
 import utils.CaptureScreenshots;
 import utils.DriverSetup;
 import utils.ExtentReport;
 import utils.ReadProperties;
-
-import java.util.List;
-
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Logger;
+
 
 public class IdentifyCoursePage extends DriverSetup {
 

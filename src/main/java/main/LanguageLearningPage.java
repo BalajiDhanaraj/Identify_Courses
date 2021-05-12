@@ -1,5 +1,4 @@
 package main;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -7,18 +6,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-
-import org.testng.internal.EclipseInterface;
 import test_pom.LanguageLearning;
 import utils.CaptureScreenshots;
 import utils.DriverSetup;
 import utils.ExtentReport;
 import utils.ReadProperties;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Logger;
+
 
 public class LanguageLearningPage extends DriverSetup {
 
