@@ -7,6 +7,7 @@ import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 public class ExtentReport {
     public static ExtentReports report;
 
+    /******************* Report Generation ********************/
     public static ExtentReports getReportInstance() {
 
         if (report == null) {

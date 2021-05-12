@@ -21,6 +21,7 @@ public class LanguageLearningPage extends DriverSetup {
     public ExtentReports report = ExtentReport.getReportInstance();
     public ExtentTest logger;
 
+    /******************* Search Course ********************/
     public void searchCourse() {
 
         waitload(10);
@@ -32,6 +33,7 @@ public class LanguageLearningPage extends DriverSetup {
     }
 
 
+    /******************* Select Language ********************/
     public void selectLanguage() {
 
         // Extract all the language with its total count
@@ -42,7 +44,7 @@ public class LanguageLearningPage extends DriverSetup {
 
             LanguageLearning.showAll.click();
             TakeScreenshot();
-            // String all = LanguageLearning.langName.getText();
+
             List<WebElement> langName = driver.findElements(By.xpath("//div[@class=\"checkboxText\"]"));
             List<WebElement> langCount = driver.findElements(By.xpath("//div[@class='filter-count']"));
             logger.createNode(" ");
@@ -71,20 +73,23 @@ public class LanguageLearningPage extends DriverSetup {
         LanguageLearning.closeLanguage.click();
     }
 
-
+    /******************* Select Level ********************/
     public void selectLevel() {
+
         // Extract all the levels with its total count
-        // List<WebElement>
         waitload(10);
+
         LanguageLearning.selectLevel.click();
+
         List<WebElement> Levelcount = driver.findElements(By.xpath("//div[@class=\"filter-count\"]"));
         List<WebElement> Levelname = driver.findElements(By.xpath("//div[@class='checkboxText']"));
+
         logger.createNode(" ");
-        // level name //div[@class="Select-option"]
         logger.createNode("Total count of Level : " + Levelcount.size());
 
         List<String> level_name_list=new ArrayList<String>();
         List<String> level_count_list = new ArrayList<String>();
+
         for (WebElement levelname : Levelname){
             String Level_Name = levelname.getText();
             level_name_list.add(Level_Name);
@@ -93,10 +98,10 @@ public class LanguageLearningPage extends DriverSetup {
             String Level_Count = langcount.getText();
             level_count_list.add(Level_Count);
         }
+
         for(int i=0;i<level_name_list.size();i++){
                 logger.createNode(" Level --- "+ level_name_list.get(i) +"--"+level_count_list.get(i));
         }
-
 
         logger.createNode(" ");
         driver.close();
@@ -107,14 +112,17 @@ public class LanguageLearningPage extends DriverSetup {
         driver.manage().timeouts().implicitlyWait(value, TimeUnit.SECONDS);
     }
 
+    /******************* Read Properties ********************/
     public void invokeReadProperties(){
         ReadProperties.ConfigFileReader();
     }
 
+    /******************* Take Screenshot ********************/
     public static void TakeScreenshot(){
         CaptureScreenshots.TakeScreenshot(driver,"Regression_language");
     }
 
+    /******************* Close Browser ********************/
     public void closeBrowser() {
         report.flush();
         driver.quit();

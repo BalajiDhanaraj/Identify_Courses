@@ -36,7 +36,4 @@ public class LanguageLearning {
     @FindBy(xpath = "//div[@class=\"filter-count\"]")
     public static WebElement levelCount;
 
-
-
-    //div[@class='filter-count']
 }

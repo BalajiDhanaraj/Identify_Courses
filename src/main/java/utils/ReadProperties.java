@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class ReadProperties {
+    /******************* Read Configure File Properties ********************/
     public static void ConfigFileReader(){
         BufferedReader reader; Properties properties;
         String propertyFilePath =   System.getProperty("user.dir") + "/Test_configuration/config.properties";

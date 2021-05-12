@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 public class DriverSetup extends ReadProperties{
     public static WebDriver driver;
+    /******************* Invoke Browser ********************/
     public static void invokeBrowsers(String browserName,String url) {
 
         if (browserName.equalsIgnoreCase("chrome")) {
@@ -18,9 +19,6 @@ public class DriverSetup extends ReadProperties{
             System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/test_drivers/geckodriver");
             driver = new FirefoxDriver();
         }
-
-        /************* MAXIMIZE THE WINDOW *************/
-
         driver.manage().window().maximize();
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

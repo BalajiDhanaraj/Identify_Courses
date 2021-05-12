@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class CaptureScreenshots extends DriverSetup{
-
+    /******************* Take Screenshot ********************/
     public static void TakeScreenshot(WebDriver driver, String Screenshotname){
 
         TakesScreenshot scrShot =((TakesScreenshot)driver);

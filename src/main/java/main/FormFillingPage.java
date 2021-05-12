@@ -26,7 +26,7 @@ public class FormFillingPage extends DriverSetup {
     public ExtentReports report = ExtentReport.getReportInstance();
     public ExtentTest logger;
 
-    
+    /******************* Click FOr Enterprise And Navigate To Filling Form ********************/
     public void ForEnterprise()
     {
         //Wait
@@ -35,7 +35,7 @@ public class FormFillingPage extends DriverSetup {
         driver.findElement(By.xpath("//a[contains(text(),'For Enterprise')]")).click();
 
     }
-    
+    /******************* Filling Form ********************/
     public void FillForm() throws IOException
     {
 
@@ -131,15 +131,16 @@ public class FormFillingPage extends DriverSetup {
         driver.manage().timeouts().implicitlyWait(value, TimeUnit.SECONDS);
     }
 
+    /******************* Read Properties ********************/
     public void invokeReadProperties(){
         ReadProperties.ConfigFileReader();
     }
 
+    /******************* Take Screenshot ********************/
     public static void TakeScreenshot(){
         CaptureScreenshots.TakeScreenshot(driver,"Regression");
     }
-
-
+    /******************* Close Browser ********************/
     public void closeBrowser() {
         report.flush();
         driver.quit();

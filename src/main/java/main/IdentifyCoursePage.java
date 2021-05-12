@@ -22,6 +22,7 @@ public class IdentifyCoursePage extends DriverSetup {
     String parentWindow;
 
 
+    /******************* Search Course ********************/
     public void searchCourse()
     {
         System.out.println("hello");
@@ -30,6 +31,7 @@ public class IdentifyCoursePage extends DriverSetup {
         driver.findElement(By.className("react-autosuggest__input")).sendKeys("web development courses" + Keys.ENTER);
     }
 
+    /******************* Select Language ********************/
     public void selectLanguage()
     {
 
@@ -46,6 +48,7 @@ public class IdentifyCoursePage extends DriverSetup {
 
     }
 
+    /******************* Select Level ********************/
     public void selectLevel()
     {
 
@@ -59,6 +62,7 @@ public class IdentifyCoursePage extends DriverSetup {
 
     }
 
+    /******************* First Course ********************/
     public void firstCourse()
     {
 
@@ -109,6 +113,7 @@ public class IdentifyCoursePage extends DriverSetup {
         }
     }
 
+    /******************* Second Course ********************/
     public void secondCourse()
     {
         waitload(30);
@@ -129,7 +134,7 @@ public class IdentifyCoursePage extends DriverSetup {
         logger.createNode("Course Rating - " + courseRating2);
 
         Set<String> handles2 = driver.getWindowHandles();
-
+        // Get into the Child Window
         for (String childWindow2 : handles2) {
             if (!childWindow2.contentEquals(parentWindow)) {
 
@@ -154,15 +159,16 @@ public class IdentifyCoursePage extends DriverSetup {
     public static void waitload(int value) {
         driver.manage().timeouts().implicitlyWait(value, TimeUnit.SECONDS);
     }
-
+    /******************* Read Properties ********************/
     public void invokeReadProperties(){
         ReadProperties.ConfigFileReader();
     }
-
+    /******************* Take Screenshot ********************/
     public static void TakeScreenshot(){
         CaptureScreenshots.TakeScreenshot(driver,"Regression_IdentifyCourse");
     }
 
+    /******************* Close Browser ********************/
     public void closeBrowser() {
         report.flush();
         driver.quit();
