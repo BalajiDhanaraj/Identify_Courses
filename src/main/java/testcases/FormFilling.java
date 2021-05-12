@@ -8,7 +8,7 @@ public class FormFilling extends FormFillingPage {
 
     @Test(priority = 1,groups = {"Smoke Suite","Regression Suite"})
     public void invoke() throws Exception{
-        logger=report.createTest("Invoked browser successfullu");
+        logger=report.createTest("Invoked browser successfully");
         invokeReadProperties();
     }
 

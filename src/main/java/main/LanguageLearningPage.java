@@ -2,19 +2,23 @@ package main;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
+import org.testng.internal.EclipseInterface;
 import test_pom.LanguageLearning;
 import utils.CaptureScreenshots;
 import utils.DriverSetup;
 import utils.ExtentReport;
 import utils.ReadProperties;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 public class LanguageLearningPage extends DriverSetup {
 
@@ -35,23 +39,36 @@ public class LanguageLearningPage extends DriverSetup {
     public void selectLanguage() {
 
         // Extract all the language with its total count
+        try {
+            PageFactory.initElements(driver, LanguageLearning.class);
 
-        PageFactory.initElements(driver, LanguageLearning.class);
+            LanguageLearning.selectLanguage.click();
 
-        LanguageLearning.selectLanguage.click();
+            LanguageLearning.showAll.click();
+            TakeScreenshot();
+            // String all = LanguageLearning.langName.getText();
+            List<WebElement> langName = driver.findElements(By.xpath("//div[@class=\"checkboxText\"]"));
+            List<WebElement> langCount = driver.findElements(By.xpath("//div[@class='filter-count']"));
+            logger.createNode(" ");
+            logger.createNode(" The Language Names: ");
+            logger.createNode(" ");
+            List<String> lang_list = new ArrayList<String>();
+            List<String> lang_count_list = new ArrayList<String>();
+            for (WebElement name : langName) {
+                String Lang_names = name.getText();
+                lang_list.add(Lang_names);
+            }
+            for (WebElement count : langCount) {
+                String Lang_count = count.getText();
+                lang_count_list.add(Lang_count);
+            }
 
-        LanguageLearning.showAll.click();
-        TakeScreenshot();
-       // String all = LanguageLearning.langName.getText();
-        List<WebElement> langName = driver.findElements(By.xpath("//div[@class=\"checkboxText\"]"));
-
-        logger.createNode(" ");
-        logger.createNode(" The Language Names: ");
-        logger.createNode(" ");
-        for (WebElement langname : langName){
-            String name = langname.getText();
-//            System.out.println("name"+name);
-            logger.createNode("Language Name: "+name);
+            for (int i = 0; i < lang_list.size(); i++) {
+                    logger.createNode(" Language Names and Language Count --- " + lang_list.get(i) + "--" + lang_count_list.get(i));
+            }
+        }catch (Exception e){
+            logger.createNode(System.err.toString());
+            logger.createNode(String.valueOf(Status.FAIL),"Failed"+e.getMessage());
         }
 
         logger.createNode(" ");
@@ -64,17 +81,27 @@ public class LanguageLearningPage extends DriverSetup {
         // List<WebElement>
         waitload(10);
         LanguageLearning.selectLevel.click();
-        List<WebElement> countLevel = driver.findElements(By.xpath("//div[@class=\"filter-count\"]"));
-
+        List<WebElement> Levelcount = driver.findElements(By.xpath("//div[@class=\"filter-count\"]"));
+        List<WebElement> Levelname = driver.findElements(By.xpath("//div[@class='checkboxText']"));
         logger.createNode(" ");
         // level name //div[@class="Select-option"]
-        logger.createNode("Total count of Level : " + countLevel.size());
-        for (WebElement lang2 : countLevel) {
-            String levels = lang2.getText();
-            logger.createNode(" Levels: "+levels);
-            // Reporter.log("\n");
-//            System.out.println("levels"+levels);
+        logger.createNode("Total count of Level : " + Levelcount.size());
+
+        List<String> level_name_list=new ArrayList<String>();
+        List<String> level_count_list = new ArrayList<String>();
+        for (WebElement levelname : Levelname){
+            String Level_Name = levelname.getText();
+            level_name_list.add(Level_Name);
         }
+        for (WebElement langcount : Levelcount) {
+            String Level_Count = langcount.getText();
+            level_count_list.add(Level_Count);
+        }
+        for(int i=0;i<level_name_list.size();i++){
+                logger.createNode(" Level --- "+ level_name_list.get(i) +"--"+level_count_list.get(i));
+        }
+
+
         logger.createNode(" ");
         driver.close();
     }

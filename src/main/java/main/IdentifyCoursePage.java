@@ -42,7 +42,7 @@ public class IdentifyCoursePage extends DriverSetup {
 
     public void selectLanguage()
     {
-        try{
+
             PageFactory.initElements(driver, IdentifyCourses.class);
             // Look for Language
             IdentifyCourses.Language.click();
@@ -53,15 +53,12 @@ public class IdentifyCoursePage extends DriverSetup {
             logger.createNode(" ");
             //Select English Language
             IdentifyCourses.English.click();
-        }catch (Exception e){
-            logger.log(Status.FAIL,"Failed"+e+" ");
-        }
+
     }
 
     public void selectLevel()
     {
 
-        try{
             // Look for Level
             IdentifyCourses.Level.click();
             logger.createNode(" ");
@@ -69,9 +66,6 @@ public class IdentifyCoursePage extends DriverSetup {
             logger.createNode(" ");
             //Select Beginner Level
             IdentifyCourses.Beginner.click();
-        }catch (Exception e){
-            logger.log(Status.FAIL,"Failed"+e+" ");
-        }
 
     }
 
