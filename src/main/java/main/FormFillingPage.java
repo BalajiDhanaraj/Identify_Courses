@@ -40,7 +40,7 @@ public class FormFillingPage extends DriverSetup {
     {
 
         //Look into Courses for Campus under Product
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        waitload(10);
         String parentWindow = driver.getWindowHandle();
         Actions action = new Actions(driver);
         WebElement ProductHover = driver.findElement(By.xpath("//a[text()=\"Products\"]"));
@@ -48,7 +48,7 @@ public class FormFillingPage extends DriverSetup {
         action.build().perform();
 
         driver.findElement(By.xpath("//*[@id=\"menu-item-4901\"]/a")).click();
-        waitload(50);
+        waitload(20);
         //Locate the excel sheet to be read
         File src = new File(System.getProperty("user.dir") + "/Test_data/HackathonExcel.xlsx");
         FileInputStream stream = new FileInputStream(src);
@@ -65,7 +65,7 @@ public class FormFillingPage extends DriverSetup {
         String phone = String.valueOf(PhoneNumber);
         String InstituteName = sheet.getRow(1).getCell(5).getStringCellValue();
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        waitload(10);
 
         Set<String> handle = driver.getWindowHandles();
         for (String childWindow : handle)
@@ -76,7 +76,7 @@ public class FormFillingPage extends DriverSetup {
         try
         {
             //Fill the "Ready to transform" form from the data given in excel sheet
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            waitload(10);
 
             PageFactory.initElements(driver, formFilling.class);
             formFilling.Fname.sendKeys(FirstName);
@@ -109,7 +109,7 @@ public class FormFillingPage extends DriverSetup {
             formFilling.Submit.click();
 
             //Capture the error message & display
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            waitload(10);
             logger.createNode( " ");
             logger.createNode(" Form Filling Error Message ");
             String Error = formFilling.ErrorMessage.getText();
@@ -122,7 +122,7 @@ public class FormFillingPage extends DriverSetup {
 
         catch (Exception e)
         {
-            System.out.println(" The Error Message"+e);
+           logger.createNode(" The Error Message"+e);
         }
     }
 
