@@ -2,7 +2,7 @@ package testcases;
 import main.LanguageLearningPage;
 import org.testng.annotations.Test;
 
-public class LanguageLearning extends LanguageLearningPage {
+public class LanguageLearningTest extends LanguageLearningPage {
     @Test(priority = 1,groups = {"Smoke Suite","Regression Suite"})
     public void invoke() throws Exception{
             logger=report.createTest("Invoked Browser Successfully ");

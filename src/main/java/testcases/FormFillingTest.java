@@ -2,7 +2,7 @@ package testcases;
 import main.FormFillingPage;
 import org.testng.annotations.Test;
 
-public class FormFilling extends FormFillingPage {
+public class FormFillingTest extends FormFillingPage {
 
     @Test(priority = 1,groups = {"Smoke Suite","Regression Suite"})
     public void invoke() throws Exception{

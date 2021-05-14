@@ -6,7 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import test_pom.IdentifyCourses;
+import test_pom.IdentifyCoursesPom;
 import utils.CaptureScreenshots;
 import utils.DriverSetup;
 import utils.ExtentReport;
@@ -25,7 +25,7 @@ public class IdentifyCoursePage extends DriverSetup {
     /******************* Search Course ********************/
     public void searchCourse()
     {
-        System.out.println("hello");
+
         driver.findElement(By.className("react-autosuggest__input")).click();
         //Enter web development courses and click enter key
         driver.findElement(By.className("react-autosuggest__input")).sendKeys("web development courses" + Keys.ENTER);
@@ -35,16 +35,16 @@ public class IdentifyCoursePage extends DriverSetup {
     public void selectLanguage()
     {
 
-            PageFactory.initElements(driver, IdentifyCourses.class);
+            PageFactory.initElements(driver, IdentifyCoursesPom.class);
             // Look for Language
-            IdentifyCourses.Language.click();
+            IdentifyCoursesPom.Language.click();
             waitload(30);
             logger.createNode(" ");
             waitload(10);
             logger.createNode(" The Selected Language: English ");
             logger.createNode(" ");
             //Select English Language
-            IdentifyCourses.English.click();
+            IdentifyCoursesPom.English.click();
 
     }
 
@@ -53,12 +53,12 @@ public class IdentifyCoursePage extends DriverSetup {
     {
 
             // Look for Level
-            IdentifyCourses.Level.click();
+            IdentifyCoursesPom.Level.click();
             logger.createNode(" ");
             logger.createNode(" Clicking Beginner Level: Beginner ");
             logger.createNode(" ");
             //Select Beginner Level
-            IdentifyCourses.Beginner.click();
+            IdentifyCoursesPom.Beginner.click();
 
     }
 
@@ -81,17 +81,17 @@ public class IdentifyCoursePage extends DriverSetup {
         TakeScreenshot();
         //Extract the name of the first course
         waitload(30);
-        String courseName1=IdentifyCourses.CourseName1.getText();
+        String courseName1= IdentifyCoursesPom.CourseName1.getText();
         logger.createNode("Course Name - " + courseName1);
 
         //Extract the rating of the first course
-        String courseRating1=IdentifyCourses.Rating1.getText();
+        String courseRating1= IdentifyCoursesPom.Rating1.getText();
         logger.createNode("Course Rating - " + courseRating1);
 
         parentWindow=driver.getWindowHandle();
 
-        wait.until(ExpectedConditions.elementToBeClickable(IdentifyCourses.FirstCourse));
-        IdentifyCourses.FirstCourse.click();
+        wait.until(ExpectedConditions.elementToBeClickable(IdentifyCoursesPom.FirstCourse));
+        IdentifyCoursesPom.FirstCourse.click();
 
         Set<String> handles1=driver.getWindowHandles();
 
@@ -103,7 +103,7 @@ public class IdentifyCoursePage extends DriverSetup {
                 driver.switchTo().window(childWindow1);
                 //Extract the duration of the first course
                 waitload(30);
-                String courseDuration1=IdentifyCourses.Duration1.getText();
+                String courseDuration1= IdentifyCoursesPom.Duration1.getText();
                 logger.createNode("Course Duration - " + courseDuration1);
 
                 driver.close();
@@ -117,7 +117,7 @@ public class IdentifyCoursePage extends DriverSetup {
     public void secondCourse()
     {
         waitload(30);
-        IdentifyCourses.SecondCourse.click();
+        IdentifyCoursesPom.SecondCourse.click();
 
         logger.createNode(" ");
         logger.createNode("Details of Second Course :");
@@ -125,12 +125,12 @@ public class IdentifyCoursePage extends DriverSetup {
 
         // Extract the name of the second course
         waitload(30);
-        String courseName2 = IdentifyCourses.CourseName2.getText();
+        String courseName2 = IdentifyCoursesPom.CourseName2.getText();
         logger.createNode("Course Name - " + courseName2);
 
         // Extract the rating of the second course
         waitload(30);
-        String courseRating2 = IdentifyCourses.Rating2.getText();
+        String courseRating2 = IdentifyCoursesPom.Rating2.getText();
         logger.createNode("Course Rating - " + courseRating2);
 
         Set<String> handles2 = driver.getWindowHandles();
@@ -143,7 +143,7 @@ public class IdentifyCoursePage extends DriverSetup {
 
                 // Extract the duration of the second course
                 waitload(30);
-                String courseDuration2 =IdentifyCourses.Duration2.getText();
+                String courseDuration2 = IdentifyCoursesPom.Duration2.getText();
                 logger.createNode("Course Duration - " + courseDuration2);
 
                 waitload(30);
@@ -165,7 +165,7 @@ public class IdentifyCoursePage extends DriverSetup {
     }
     /******************* Take Screenshot ********************/
     public static void TakeScreenshot(){
-        CaptureScreenshots.TakeScreenshot(driver,"Regression_IdentifyCourse");
+        CaptureScreenshots.TakeScreenshot(driver,"IdentifyCourseRegression");
     }
 
     /******************* Close Browser ********************/

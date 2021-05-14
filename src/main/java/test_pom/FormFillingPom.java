@@ -3,7 +3,8 @@ package test_pom;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class formFilling {
+public class FormFillingPom {
+
     @FindBy(id = "FirstName")
     public static WebElement Fname;
 

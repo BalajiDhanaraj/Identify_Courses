@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import test_pom.LanguageLearning;
+import test_pom.LanguageLearningPom;
 import utils.CaptureScreenshots;
 import utils.DriverSetup;
 import utils.ExtentReport;
@@ -26,9 +26,9 @@ public class LanguageLearningPage extends DriverSetup {
 
         waitload(10);
 
-        PageFactory.initElements(driver, LanguageLearning.class);
+        PageFactory.initElements(driver, LanguageLearningPom.class);
 
-        LanguageLearning.search.sendKeys("Language Learning" + Keys.ENTER);
+        LanguageLearningPom.search.sendKeys("Language Learning" + Keys.ENTER);
 
     }
 
@@ -38,11 +38,11 @@ public class LanguageLearningPage extends DriverSetup {
 
         // Extract all the language with its total count
         try {
-            PageFactory.initElements(driver, LanguageLearning.class);
+            PageFactory.initElements(driver, LanguageLearningPom.class);
 
-            LanguageLearning.selectLanguage.click();
+            LanguageLearningPom.selectLanguage.click();
 
-            LanguageLearning.showAll.click();
+            LanguageLearningPom.showAll.click();
             TakeScreenshot();
 
             List<WebElement> langName = driver.findElements(By.xpath("//div[@class=\"checkboxText\"]"));
@@ -70,7 +70,7 @@ public class LanguageLearningPage extends DriverSetup {
         }
 
         logger.createNode(" ");
-        LanguageLearning.closeLanguage.click();
+        LanguageLearningPom.closeLanguage.click();
     }
 
     /******************* Select Level ********************/
@@ -79,7 +79,7 @@ public class LanguageLearningPage extends DriverSetup {
         // Extract all the levels with its total count
         waitload(10);
 
-        LanguageLearning.selectLevel.click();
+        LanguageLearningPom.selectLevel.click();
 
         List<WebElement> Levelcount = driver.findElements(By.xpath("//div[@class=\"filter-count\"]"));
         List<WebElement> Levelname = driver.findElements(By.xpath("//div[@class='checkboxText']"));
@@ -102,7 +102,6 @@ public class LanguageLearningPage extends DriverSetup {
         for(int i=0;i<level_name_list.size();i++){
                 logger.createNode(" Level --- "+ level_name_list.get(i) +"--"+level_count_list.get(i));
         }
-
         logger.createNode(" ");
         driver.close();
     }
@@ -119,7 +118,7 @@ public class LanguageLearningPage extends DriverSetup {
 
     /******************* Take Screenshot ********************/
     public static void TakeScreenshot(){
-        CaptureScreenshots.TakeScreenshot(driver,"Regression_language");
+        CaptureScreenshots.TakeScreenshot(driver,"LanguageRegression");
     }
 
     /******************* Close Browser ********************/

@@ -6,8 +6,7 @@ import org.w3c.dom.html.HTMLInputElement;
 
 import static org.openqa.selenium.By.xpath;
 
-public class LanguageLearning {
-
+public class LanguageLearningPom {
 
     @FindBy(xpath = "//input[@class='react-autosuggest__input']")
     public static WebElement search;

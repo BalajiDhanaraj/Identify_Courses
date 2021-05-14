@@ -6,7 +6,7 @@ import main.IdentifyCoursePage;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Test;
 
-public class IdentifyCourse extends IdentifyCoursePage {
+public class IdentifyCourseTest extends IdentifyCoursePage {
 
     @Test(priority = 1,groups ={"Smoke Suite","Regression Suite"})
     public void invoke() throws Exception{

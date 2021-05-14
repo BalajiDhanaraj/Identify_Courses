@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-import test_pom.formFilling;
+import test_pom.FormFillingPom;
 import utils.CaptureScreenshots;
 import utils.DriverSetup;
 import utils.ExtentReport;
@@ -78,41 +78,41 @@ public class FormFillingPage extends DriverSetup {
             //Fill the "Ready to transform" form from the data given in excel sheet
             waitload(10);
 
-            PageFactory.initElements(driver, formFilling.class);
-            formFilling.Fname.sendKeys(FirstName);
+            PageFactory.initElements(driver, FormFillingPom.class);
+            FormFillingPom.Fname.sendKeys(FirstName);
 
-            formFilling.Lname.sendKeys(LastName);
+            FormFillingPom.Lname.sendKeys(LastName);
 
-            Select select = new Select(formFilling.JobFunction);
+            Select select = new Select(FormFillingPom.JobFunction);
             select.selectByIndex(1);
 
-            formFilling.Jobtitle.sendKeys(JobTitle);
+            FormFillingPom.Jobtitle.sendKeys(JobTitle);
 
-            formFilling.Email.sendKeys(Email);
+            FormFillingPom.Email.sendKeys(Email);
 
-            formFilling.Phone.sendKeys(phone);
+            FormFillingPom.Phone.sendKeys(phone);
 
-            formFilling.Institutename.sendKeys(InstituteName);
+            FormFillingPom.Institutename.sendKeys(InstituteName);
 
-            Select select1 = new Select(formFilling.InstituteType);
+            Select select1 = new Select(FormFillingPom.InstituteType);
             select1.selectByVisibleText("Government");
 
-            Select select2 = new Select(formFilling.PrimaryDisipline);
+            Select select2 = new Select(FormFillingPom.PrimaryDisipline);
             select2.selectByVisibleText("Computer Science");
 
-            Select select3 = new Select(formFilling.Country);
+            Select select3 = new Select(FormFillingPom.Country);
             select3.selectByVisibleText("India");
 
-            Select select4 = new Select(formFilling.State);
+            Select select4 = new Select(FormFillingPom.State);
             select4.selectByVisibleText("Tamil Nadu");
 
-            formFilling.Submit.click();
+            FormFillingPom.Submit.click();
 
             //Capture the error message & display
             waitload(10);
             logger.createNode( " ");
             logger.createNode(" Form Filling Error Message ");
-            String Error = formFilling.ErrorMessage.getText();
+            String Error = FormFillingPom.ErrorMessage.getText();
             logger.createNode("Error : "+Error);
             logger.createNode(" ");
             TakeScreenshot();
@@ -138,7 +138,7 @@ public class FormFillingPage extends DriverSetup {
 
     /******************* Take Screenshot ********************/
     public static void TakeScreenshot(){
-        CaptureScreenshots.TakeScreenshot(driver,"Regression");
+        CaptureScreenshots.TakeScreenshot(driver,"FormFillingRegression");
     }
     /******************* Close Browser ********************/
     public void closeBrowser() {

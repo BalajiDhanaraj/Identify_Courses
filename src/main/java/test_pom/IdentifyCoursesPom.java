@@ -3,7 +3,7 @@ package test_pom;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class IdentifyCourses {
+public class IdentifyCoursesPom {
     @FindBy(xpath= "//*[@id=\"react-select-2--value\"]/div[1]")
     public static WebElement Language;
 

@@ -9,9 +9,9 @@
             </run>
         </groups>
         <classes>
-            <class name="testcases.IdentifyCourse"/>
-            <class name="testcases.LanguageLearning"/>
-            <class name="testcases.FormFilling" />
+            <class name="testcases.IdentifyCourseTest"/>
+            <class name="testcases.LanguageLearningTest"/>
+            <class name="testcases.FormFillingTest" />
         </classes>
     </test>
 </suite>
