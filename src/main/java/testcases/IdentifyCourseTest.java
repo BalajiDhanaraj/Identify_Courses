@@ -1,9 +1,6 @@
 package testcases;
 
-import com.aventstack.extentreports.ExtentTest;
-import main.FormFillingPage;
-import main.IdentifyCoursePage;
-import org.testng.annotations.AfterSuite;
+import main_page.IdentifyCoursePage;
 import org.testng.annotations.Test;
 
 public class IdentifyCourseTest extends IdentifyCoursePage {
@@ -25,7 +22,7 @@ public class IdentifyCourseTest extends IdentifyCoursePage {
         logger = report.createTest(" Select Languages ");
         selectLanguage();
     }
-    @Test(priority = 3,groups = {"Smoke Suite","Regression Suite"})
+    @Test(priority = 4,groups = {"Smoke Suite","Regression Suite"})
     public void SelectLevel() throws Exception{
         logger = report.createTest(" Select Languages ");
         selectLevel();

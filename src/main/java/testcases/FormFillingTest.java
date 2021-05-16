@@ -1,5 +1,5 @@
 package testcases;
-import main.FormFillingPage;
+import main_page.FormFillingPage;
 import org.testng.annotations.Test;
 
 public class FormFillingTest extends FormFillingPage {

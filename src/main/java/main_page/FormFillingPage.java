@@ -1,4 +1,4 @@
-package main;
+package main_page;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -32,6 +32,10 @@ public class FormFillingPage extends DriverSetup {
         //Wait
         waitload(10);
         //Click "For Enterprise"
+        logger.createNode(" ");
+        logger.createNode(" Clicked For Enterprise Successfully");
+        logger.createNode(" ");
+
         driver.findElement(By.xpath("//a[contains(text(),'For Enterprise')]")).click();
 
     }
@@ -110,12 +114,19 @@ public class FormFillingPage extends DriverSetup {
 
             //Capture the error message & display
             waitload(10);
+
             logger.createNode( " ");
             logger.createNode(" Form Filling Error Message ");
             String Error = FormFillingPom.ErrorMessage.getText();
             logger.createNode("Error : "+Error);
             logger.createNode(" ");
+
             TakeScreenshot();
+
+            logger.createNode(" ");
+            logger.createNode(" ScreenShot Taken Successfully ");
+            logger.createNode(" ");
+
             driver.close();
             driver.switchTo().window(parentWindow);
         }
@@ -133,7 +144,13 @@ public class FormFillingPage extends DriverSetup {
 
     /******************* Read Properties ********************/
     public void invokeReadProperties(){
+
+        logger.createNode(" ");
+        logger.createNode(" Fetching Data From Configuration File & Browser Launched Successfully ");
+        logger.createNode(" ");
+
         ReadProperties.ConfigFileReader();
+
     }
 
     /******************* Take Screenshot ********************/
@@ -142,6 +159,11 @@ public class FormFillingPage extends DriverSetup {
     }
     /******************* Close Browser ********************/
     public void closeBrowser() {
+
+        logger.createNode(" ");
+        logger.createNode(" Browser Closed Successfully ");
+        logger.createNode(" ");
+
         report.flush();
         driver.quit();
     }

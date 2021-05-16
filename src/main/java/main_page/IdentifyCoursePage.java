@@ -1,4 +1,4 @@
-package main;
+package main_page;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.By;
@@ -25,6 +25,9 @@ public class IdentifyCoursePage extends DriverSetup {
     /******************* Search Course ********************/
     public void searchCourse()
     {
+        logger.createNode(" ");
+        logger.createNode(" Searching Courses For Web Development Courses ");
+        logger.createNode(" ");
 
         driver.findElement(By.className("react-autosuggest__input")).click();
         //Enter web development courses and click enter key
@@ -34,6 +37,7 @@ public class IdentifyCoursePage extends DriverSetup {
     /******************* Select Language ********************/
     public void selectLanguage()
     {
+
 
             PageFactory.initElements(driver, IdentifyCoursesPom.class);
             // Look for Language
@@ -54,30 +58,28 @@ public class IdentifyCoursePage extends DriverSetup {
 
             // Look for Level
             IdentifyCoursesPom.Level.click();
+
             logger.createNode(" ");
             logger.createNode(" Clicking Beginner Level: Beginner ");
             logger.createNode(" ");
             //Select Beginner Level
             IdentifyCoursesPom.Beginner.click();
 
+            logger.createNode(" ");
+            logger.createNode(" ScreenShot Taken Successfully ");
+            logger.createNode(" ");
     }
 
     /******************* First Course ********************/
     public void firstCourse()
     {
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
         WebDriverWait wait=new WebDriverWait(driver,20);
 
         logger.createNode(" ");
         logger.createNode(" Details of First Course : ");
         logger.createNode(" ");
+
         TakeScreenshot();
         //Extract the name of the first course
         waitload(30);
@@ -108,9 +110,12 @@ public class IdentifyCoursePage extends DriverSetup {
 
                 driver.close();
             }
+
             //Get back to Parent window
+
             driver.switchTo().window(parentWindow);
         }
+        logger.createNode(" ");
     }
 
     /******************* Second Course ********************/
@@ -151,6 +156,7 @@ public class IdentifyCoursePage extends DriverSetup {
             }
         }
         // Get back to Parent window
+        logger.createNode(" ");
         driver.switchTo().window(parentWindow);
 
     }
@@ -161,6 +167,11 @@ public class IdentifyCoursePage extends DriverSetup {
     }
     /******************* Read Properties ********************/
     public void invokeReadProperties(){
+
+        logger.createNode(" ");
+        logger.createNode(" Fetching Data From Configuration File & Browser Launched Successfully ");
+        logger.createNode(" ");
+
         ReadProperties.ConfigFileReader();
     }
     /******************* Take Screenshot ********************/
@@ -170,6 +181,11 @@ public class IdentifyCoursePage extends DriverSetup {
 
     /******************* Close Browser ********************/
     public void closeBrowser() {
+
+        logger.createNode(" ");
+        logger.createNode(" Browser Closed Successfully ");
+        logger.createNode(" ");
+
         report.flush();
         driver.quit();
     }

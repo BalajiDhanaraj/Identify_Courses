@@ -1,5 +1,5 @@
 package testcases;
-import main.LanguageLearningPage;
+import main_page.LanguageLearningPage;
 import org.testng.annotations.Test;
 
 public class LanguageLearningTest extends LanguageLearningPage {
