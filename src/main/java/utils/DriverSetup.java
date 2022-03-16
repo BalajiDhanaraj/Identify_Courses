@@ -12,8 +12,8 @@ public class DriverSetup extends ReadProperties{
     public static void invokeBrowsers(String browserName,String url) {
 
         if (browserName.equalsIgnoreCase("chrome")) {
-            System.setProperty("webdriver.chrome.driver",
-                    System.getProperty("user.dir") + "/test_drivers/chromedriver");
+            System.setProperty("webdriver.chrome.driver","/Volumes/Macintosh HD/For Mac/java text and soft file and java IDE/Intellij java project/Drivers/chromedriver");
+//                    System.getProperty("user.dir") + "/test_drivers/chromedriver");
             driver = new ChromeDriver();
         } else if (browserName.equalsIgnoreCase("firefox")) {
             System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/test_drivers/geckodriver");

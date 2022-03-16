@@ -16,7 +16,7 @@ public class IdentifyCoursesPom {
     @FindBy(xpath= "//input[@value='Beginner']")
     public static WebElement Beginner;
 
-    @FindBy(xpath = "//li[@class='ais-InfiniteHits-item'][1]//div[@class='rc-DesktopSearchCard anchor-wrapper']//h2[1]")
+    @FindBy(xpath = "//li[@class='ais-InfiniteHits-item'][1]//div[@class='rc-DesktopSearchCard cds css-1kvo9vf']//h2[1]")
     public static WebElement FirstCourse;
 
     @FindBy(xpath = "//li[@class='ais-InfiniteHits-item'][1]//div[@class='rc-DesktopSearchCard anchor-wrapper']//h2[1]")
